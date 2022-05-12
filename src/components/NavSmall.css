@@ -1,0 +1,14 @@
+.nav-small{
+    flex: 0.5;
+    position: sticky;
+}
+.nav-icon{
+    margin: 20px 0px;
+    padding: 5px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.nav-title{
+    margin-top: 10px;
+}

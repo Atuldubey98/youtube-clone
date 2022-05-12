@@ -1,0 +1,9 @@
+.category{
+    border-radius: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 5px;
+    margin: 5px;
+    text-transform: capitalize;
+    background-color: lightgrey;
+}
