@@ -1,3 +1,31 @@
 .nav-large{
-    flex: 2;
+    flex: 3;
+}
+.nav-items{
+    position: sticky;
+    top: 56px;
+    border-bottom: 1px solid lightgray;
+}
+
+.nav-item{
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-start;
+}
+.nav-item:hover{
+    background-color: rgb(245, 244, 244);
+}
+.nav-large-title{
+    flex: 7;
+}
+.nav-large-icon{
+    flex: 5;
+}
+@media screen and (max-width : 600px) {
+    .nav-large{
+        display: none;
+    }
 }

@@ -4,6 +4,11 @@
     white-space: nowrap;
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
     text-transform: capitalize;
-    background-color: lightgrey;
+    background-color: rgb(245, 244, 244);
+}
+.category:hover{
+    background-color: black;
+    color: white;
 }

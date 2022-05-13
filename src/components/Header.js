@@ -1,4 +1,7 @@
 import React from 'react'
+import AppsIcon from '@mui/icons-material/Apps';
+import VideoCallIcon from '@mui/icons-material/VideoCall';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import './Header.css'
 const Header = ({navToggle}) => {
   return (
@@ -10,7 +13,7 @@ const Header = ({navToggle}) => {
         <img className='youtube-img' src="image/you" alt="youtube-icon" />
       </div>
       <div className="header-search">
-          <input type="text" name='search'/>
+          <input type="text" name='search' autoComplete='off'/>
           <div className="search-icon">
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
@@ -19,8 +22,10 @@ const Header = ({navToggle}) => {
           </div>
       </div>
       <div className="header-icons">
+        <AppsIcon className="header-icon"/>
+        <VideoCallIcon className="header-icon"/>
         <i className="header-icon fa-solid fa-video"></i>
-        <i className="header-icon fa-solid fa-bell"></i>
+        <NotificationsIcon className="header-icon"/>
       </div>
     </div>
   )

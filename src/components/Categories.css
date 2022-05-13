@@ -1,13 +1,15 @@
 .categories{
     position: sticky;
     display: flex;
+    top: 56px;
+    background-color: white;
     align-items: center;
     justify-content: space-evenly;
     height: 56px;
     border-bottom: 1px solid lightgray;
 }
 .category-list{
-    width: 90vw;
+    width: 80vw;
     overflow-x: hidden;
     display: flex;
 }
@@ -15,12 +17,11 @@
     font-size: 18px;
     border-radius: 50px;
     cursor: pointer;
-    height: 56px;
 }
 .category-btn:hover{
     background-color: rgb(172, 170, 170);    
 }
 .shadow{
     opacity: 0.6;
-    background-color: rgb(172, 170, 170);
+    background-color: grey
 }

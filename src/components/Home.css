@@ -2,8 +2,14 @@
     flex: 11.5;
 }
 .home-withnav{
-    flex: 10;
+    flex: 9;
 }
 .home{
-    background-color: rgba(255, 255, 255, 0.788);
+    background-color: rgb(245, 244, 244);
+}
+.home-videocards{
+    display: grid;
+    grid-template-columns:  repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    padding: 10px;
 }

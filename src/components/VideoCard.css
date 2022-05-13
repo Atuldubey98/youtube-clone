@@ -1,0 +1,43 @@
+.videocard{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    justify-content: center;
+    cursor: pointer;
+    margin: auto;
+}
+.video-uploader{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 30px;
+    margin: 10px;
+}
+.video-img{
+    width: 300px;
+}
+.video-data{
+    display: flex;
+    justify-content: center;
+}
+.title-img{
+    padding: 10px;
+}
+.title-subheading{
+    font-size: smaller;
+    color: darkgrey;
+}
+.subheading{
+    padding-top: 2px;
+}
+
+@media screen and (max-width : 600px) {
+    .videocard{
+        width: 90vw;
+    }
+    .video-img{
+        width: 90vw;
+    }
+}

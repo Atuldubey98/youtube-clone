@@ -1,6 +1,14 @@
 .nav-small{
     flex: 0.5;
+    background-color: white;
+}
+.nav-icons{
     position: sticky;
+    top: 56px;
+}
+.nav-title{
+    font-size: 10px;
+    color: grey;
 }
 .nav-icon{
     margin: 20px 0px;
@@ -11,4 +19,9 @@
 }
 .nav-title{
     margin-top: 10px;
+}
+@media screen and (max-width : 600px) {
+    .nav-small{
+        display: none;
+    }
 }

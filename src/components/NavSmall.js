@@ -1,5 +1,8 @@
 import React from 'react'
 import './NavSmall.css'
+import ExploreIcon from '@mui/icons-material/Explore';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 const NavSmall = () => {
     return (
         <div className='nav-small'>
@@ -9,7 +12,7 @@ const NavSmall = () => {
                     <p className='nav-title'>Home</p>
                 </div>
                 <div className="nav-icon">
-                    <i className="fa-brands fa-wpexplorer"></i>
+                    <ExploreIcon/>
                     <p className='nav-title'>Explore</p>
                 </div>
                 <div className="nav-icon">
@@ -17,8 +20,12 @@ const NavSmall = () => {
                     <p className='nav-title'>Shorts</p>
                 </div>
                 <div className="nav-icon">
-                    <i className="fa-solid fa-book-open"></i>
+                    <VideoLibraryIcon/>
                     <p className='nav-title'>Library</p>
+                </div>
+                <div className="nav-icon">
+                    <SubscriptionsIcon/>
+                    <p className='nav-title'>Subscriptions</p>
                 </div>
             </div>
         </div>
