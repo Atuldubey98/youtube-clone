@@ -4,7 +4,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import GoogleIcon from "@mui/icons-material/Google";
-import { signInUser } from "../firesetup/loginapi";
+import { signInUser, signInWithGoogle } from "../firesetup/loginapi";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,11 +18,19 @@ const LoginPage = () => {
     e.preventDefault();
     if (password !== "" && email !== "") {
       try {
-          const user = await signInUser(email, password);
-          console.log(user);
+        const user = await signInUser(email, password);
+        console.log(user);
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
+    }
+  };
+  const onSignInWithGoogle = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
@@ -54,7 +62,7 @@ const LoginPage = () => {
             <LoginIcon />
             <span className="btn-txt">Login</span>
           </button>
-          <button className="sign-google">
+          <button onClick={onSignInWithGoogle} className="sign-google">
             <GoogleIcon />
             <span className="btn-txt">Signin with Google</span>
           </button>
