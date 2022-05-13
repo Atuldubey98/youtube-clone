@@ -7,6 +7,7 @@
     justify-content: space-evenly;
     height: 56px;
     border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
 }
 .category-list{
     width: 80vw;
@@ -22,6 +23,6 @@
     background-color: rgb(172, 170, 170);    
 }
 .shadow{
-    opacity: 0.6;
+    opacity: 0;
     background-color: grey
 }

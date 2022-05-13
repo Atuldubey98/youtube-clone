@@ -28,7 +28,7 @@ const Categories = () => {
     }
     return (
         <div className='categories'>
-            <button onClick={() => scrollCategoryList(-200)} className={catScroll > 0 ? 'shadow category-btn' : 'category-btn'}>
+            <button onClick={() => scrollCategoryList(-200)} className={catScroll > 0 ? ' category-btn' : 'shadow category-btn'}>
                 <i className="fa-solid fa-chevron-left"></i>
             </button>
             <div id='categories' className="category-list">
@@ -36,7 +36,7 @@ const Categories = () => {
                     categoryNames.map((categoryName, i) => <Category key={i} categoryName={categoryName} />)
                 }
             </div>
-            <button onClick={() => scrollCategoryList(200)} className={catScroll === 0  ? 'shadow category-btn' : 'category-btn'}>
+            <button onClick={() => scrollCategoryList(200)} className={catScroll === 0  ? 'category-btn' : 'shadow category-btn'}>
                 <i className="fa-solid fa-chevron-right"></i>
             </button>
         </div>

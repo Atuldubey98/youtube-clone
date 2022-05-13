@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import "./firesetup";
 import HomePage from './pages/HomePage';
 function App() {
   const [nav, setNav] = useState(false);
