@@ -15,10 +15,9 @@ function App() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        localStorage.setItem("user", user);
         navigate("/", { replace: true });
       } else {
-        localStorage.clear();
+        navigate("/login", { replace: true });
       }
     });
     return () => {

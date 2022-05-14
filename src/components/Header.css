@@ -1,97 +1,137 @@
-.header{
-    display: flex;
-    padding: 12px;
-    height: 56px;
-    position: sticky;
-    top: 0;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+.header {
+  display: flex;
+  padding: 12px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
 
-.header-title{
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    flex: 2;
+.header-title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  flex: 2;
 }
-.search-mic{
-    width: 38px;
-    height: 38px;
-    border-radius: 38px;
-    background-color: rgb(236, 235, 235);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-}
-
-.header-search{
-    display: flex;
-    align-items: center;
-    flex: 6;
-    justify-content: center;
-}
-.header-search input{
-    width: 70%;
-    height: 38px;
-    border: 1px solid lightgray;
+.search-mic {
+  width: 38px;
+  height: 38px;
+  border-radius: 38px;
+  background-color: rgb(236, 235, 235);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
 }
 
-.search-icon{
-    border: 0.5px solid black;
-    background-color: rgb(236, 235, 235);
-    height: 38px;
-    width: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;  
+.header-search {
+  display: flex;
+  align-items: center;
+  flex: 6;
+  justify-content: center;
 }
-.search-icon:hover{
-    background-color: lightgray;
+.header-search input {
+  width: 70%;
+  height: 38px;
+  border: 1px solid lightgray;
 }
-.header-search input:focus{
-    width: 90%;
-    box-shadow: none;
-    outline: none;
-    border: 1px solid rgb(98, 98, 241);
+
+.search-icon {
+  border: 0.5px solid black;
+  background-color: rgb(236, 235, 235);
+  height: 38px;
+  width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.header-menu{
-    width: 38px;
-    height: 38px;
+.search-icon:hover {
+  background-color: lightgray;
 }
-.header-menu:hover{
-    background-color: lightgray;
-    border-radius: 30px;
+.header-search input:focus {
+  width: 90%;
+  box-shadow: none;
+  outline: none;
+  border: 1px solid rgb(98, 98, 241);
 }
-.header-icons{
-    flex: 4;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.header-menu {
+  width: 38px;
+  height: 38px;
 }
-.header-icon{
-    cursor: pointer;
-    margin: 10px;
+.header-menu:hover {
+  background-color: lightgray;
+  border-radius: 30px;
 }
-.youtube-img{
-    width: 15vh;
-    margin-left: 30px;
-    object-fit: contain;
+.header-icons {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-@media screen and (max-width : 600px){
-    .header-menu{
-        display: none;
-    }
-    .header-icons{
-        display: none;
-    }
-    .search-mic{
-        display: none;
-    }
+.header-icon {
+  cursor: pointer;
+  margin: 10px;
 }
-@media screen and (max-width : 700px){
-    .header-menu{
-        display: none;
-    }
+.youtube-img {
+  width: 15vh;
+  margin-left: 30px;
+  object-fit: contain;
+}
+.avatar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-item-icon {
+  flex: 3;
+}
+.menu-item-text {
+  flex: 9;
+}
+.avatar-title {
+  border-bottom: 0.5px solid lightgray;
+  padding: 10px;
+}
+
+.avatar-content .title {
+  border-top: 5px;
+  border-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 18px;
+}
+.avatar-subtitle {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: blue;
+}
+.avatar-menu-item:hover {
+  background-color: rgb(245, 244, 244);
+}
+.avatar-menu-item {
+  cursor: pointer;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+@media screen and (max-width: 600px) {
+  .header-menu {
+    display: none;
+  }
+  .header-icons {
+    display: none;
+  }
+  .search-mic {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header-menu {
+    display: none;
+  }
 }

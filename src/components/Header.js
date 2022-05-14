@@ -1,24 +1,58 @@
-import React from 'react'
-import AppsIcon from '@mui/icons-material/Apps';
-import VideoCallIcon from '@mui/icons-material/VideoCall';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import './Header.css'
-import Avatar from '@mui/material/Avatar'
+import React from "react";
+import AppsIcon from "@mui/icons-material/Apps";
+import ModalSheet from "./ModalSheet";
+import VideoCallIcon from "@mui/icons-material/VideoCall";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import "./Header.css";
+import Avatar from "@mui/material/Avatar";
+import Modal from "react-modal";
+import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 const Header = ({ navToggle }) => {
+  Modal.setAppElement("#root");
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {}
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+  const customStyles = {
+    overlay: {
+      backgroundColor: "none",
+    },
+    content: {
+      top: "150px",
+      left: "85%",
+      margin: 0,
+      padding: 0,
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
   return (
-    <div className='header'>
+    <div className="header">
       <div className="header-title">
         <div onClick={navToggle} className="header-menu">
           <i className="header-icon fa-solid fa-bars"></i>
         </div>
-        <img className='youtube-img' src="image/you" alt="youtube-icon" />
+        <img className="youtube-img" src="image/you" alt="youtube-icon" />
       </div>
       <div className="header-search">
-        <input type="text" name='search' autoComplete='off' />
+        <input type="text" name="search" autoComplete="off" />
         <div className="search-icon">
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
-        <div className='search-mic'>
+        <div className="search-mic">
           <i className="search-phone fa-solid fa-microphone"></i>
         </div>
       </div>
@@ -27,10 +61,70 @@ const Header = ({ navToggle }) => {
         <VideoCallIcon className="header-icon" />
         <i className="header-icon fa-solid fa-video"></i>
         <NotificationsIcon className="header-icon" />
-        <Avatar sx={{ width: '30px', height: '30px' }} className='header-icon' />
+        <div className="avatar-menu">
+          <Avatar
+            onClick={openModal}
+            sx={{
+              width: "30px",
+              height: "30px",
+              border: !modalIsOpen ? "1px solid blue" : "none",
+            }}
+            className="header-icon"
+          />
+          <ModalSheet
+            children={
+              <div className="avatar-menu">
+                <div className="avatar-title">
+                  <Avatar
+                    onClick={openModal}
+                    sx={{
+                      width: "30px",
+                      height: "30px",
+                      border: "1px solid blue",
+                    }}
+                    className="header-icon"
+                  />
+                  <div className="avatar-content">
+                    <p className="title">Atul Dubey</p>
+                    <span className="avatar-subtitle">
+                      Manage your Google Accounts
+                    </span>
+                  </div>
+                </div>
+                <div className="avatar-menu-item">
+                  <AccountBoxOutlinedIcon className="menu-item-icon" />
+                  <span className="menu-item-text">Your channel</span>
+                </div>
+                <div className="avatar-menu-item">
+                  <MonetizationOnOutlinedIcon className="menu-item-icon" />
+                  <span className="menu-item-text">
+                    Purchase and Memberships
+                  </span>
+                </div>
+                <div className="avatar-menu-item">
+                  <SettingsOutlinedIcon className="menu-item-icon" />
+                  <span className="menu-item-text">YouTube Studio</span>
+                </div>
+                <div className="avatar-menu-item">
+                  <GroupOutlinedIcon className="menu-item-icon" />
+                  <span className="menu-item-text">Switch Accounts</span>
+                </div>
+                <div className="avatar-menu-item">
+                  <ExitToAppOutlinedIcon className="menu-item-icon" />
+                  <span className="menu-item-text">Sign Out</span>
+                </div>
+              </div>
+            }
+            modalIsOpen={modalIsOpen}
+            customStyles={customStyles}
+            closeModal={closeModal}
+            openModal={openModal}
+            afterOpenModal={afterOpenModal}
+          />
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
