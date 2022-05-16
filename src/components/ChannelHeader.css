@@ -1,12 +1,15 @@
-.channel-header {
+.channel-avatar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: #f9f9f9;
-  padding: 10px;
 }
-
+.channel-header {
+  display: grid;
+  grid-gap: 10px;
+  padding: 5px;
+  background-color: #f9f9f9;
+}
 .avatar-heading {
   display: flex;
   margin: 10px;
@@ -21,22 +24,31 @@
   align-items: center;
   justify-content: center;
 }
-.button-set .button-channel{
-    background-color: #065fd4;
-    margin: 5px;
-    cursor: pointer;
-    font-size: medium;
-    padding: 5px;
-    color: white;
+.button-set .button-channel {
+  background-color: #065fd4;
+  margin: 5px;
+  cursor: pointer;
+  font-size: medium;
+  padding: 5px;
+  color: white;
+}
+
+.header-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .avatar-header {
   margin-left: 15px;
 }
-.header-link{
-    color: rgb(104, 103, 103);
-    cursor: pointer;
-    padding: 15px;
+.header-link {
+  color: rgb(104, 103, 103);
+  cursor: pointer;
+  padding: 15px;
 }
-.header-link:hover{
-    background-color: rgb(231, 231, 226);
+.header-link:hover {
+  background-color: rgb(231, 231, 226);
+}
+.avatar-heading .MuiAvatar-root {
+  position: static;
 }

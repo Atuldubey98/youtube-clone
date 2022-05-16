@@ -1,5 +1,6 @@
 .nav-large{
     flex: 3;
+    background-color: white;
 }
 .nav-items{
     position: sticky;

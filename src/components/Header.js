@@ -77,9 +77,8 @@ const Header = ({ navToggle }) => {
         </div>
       </div>
       <div className="header-icons">
-        <AppsIcon className="header-icon" />
         <VideoCallIcon className="header-icon" />
-        <i className="header-icon fa-solid fa-video"></i>
+        <AppsIcon className="header-icon" />
         <NotificationsIcon className="header-icon" />
         <div className="avatar-menu">
           <Avatar
@@ -107,7 +106,7 @@ const Header = ({ navToggle }) => {
                     className="header-icon"
                   />
                   <div className="avatar-content">
-                    <p className="title">Atul Dubey</p>
+                    <p className="title">{user?.displayName}</p>
                     <span className="avatar-subtitle">
                       Manage your Google Accounts
                     </span>
