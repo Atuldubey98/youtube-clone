@@ -5,6 +5,7 @@ import "./firesetup/firesetup";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import ChannelPage from "./pages/ChannelPage";
 const auth = getAuth();
 function App() {
   const [nav, setNav] = useState(false);
@@ -14,11 +15,7 @@ function App() {
   };
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        navigate("/", { replace: true });
-      } else {
-        navigate("/login", { replace: true });
-      }
+      
     });
     return () => {
       unsubscribe();
@@ -31,6 +28,10 @@ function App() {
         <Route
           path="/"
           element={<HomePage nav={nav} navToggle={navToggle} />}
+        />
+        <Route
+          path="/channel"
+          element={<ChannelPage nav={nav} navToggle={navToggle} />}
         />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

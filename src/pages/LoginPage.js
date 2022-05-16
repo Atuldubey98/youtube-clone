@@ -5,9 +5,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import GoogleIcon from "@mui/icons-material/Google";
 import { signInUser, signInWithGoogle } from "../firesetup/loginapi";
+import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const onEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -20,6 +22,7 @@ const LoginPage = () => {
       try {
         const user = await signInUser(email, password);
         console.log(user);
+        navigate("/", {replace : true});
       } catch (error) {
         console.log(error);
       }
@@ -29,6 +32,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await signInWithGoogle();
+      navigate("/", {replace : true});
     } catch (error) {
       console.log(error);
     }

@@ -11,10 +11,13 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
+import {useNavigate} from 'react-router-dom'
+import {getAuth} from 'firebase/auth';
 const Header = ({ navToggle }) => {
   Modal.setAppElement("#root");
   const [modalIsOpen, setIsOpen] = React.useState(false);
-
+  const navigate = useNavigate();
+  const auth = getAuth();
   function openModal() {
     setIsOpen(true);
   }
@@ -39,6 +42,9 @@ const Header = ({ navToggle }) => {
       transform: "translate(-50%, -50%)",
     },
   };
+  const handleChannelPage = ()=>{
+    navigate('/channel');
+  }
   return (
     <div className="header">
       <div className="header-title">
@@ -63,6 +69,7 @@ const Header = ({ navToggle }) => {
         <NotificationsIcon className="header-icon" />
         <div className="avatar-menu">
           <Avatar
+            src={auth?.currentUser?.photoURL}
             onClick={openModal}
             sx={{
               width: "30px",
@@ -76,6 +83,7 @@ const Header = ({ navToggle }) => {
               <div className="avatar-menu">
                 <div className="avatar-title">
                   <Avatar
+                    src={auth?.currentUser?.photoURL}
                     onClick={openModal}
                     sx={{
                       width: "30px",
@@ -91,7 +99,7 @@ const Header = ({ navToggle }) => {
                     </span>
                   </div>
                 </div>
-                <div className="avatar-menu-item">
+                <div onClick={handleChannelPage} className="avatar-menu-item">
                   <AccountBoxOutlinedIcon className="menu-item-icon" />
                   <span className="menu-item-text">Your channel</span>
                 </div>
