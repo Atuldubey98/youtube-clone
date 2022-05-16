@@ -12,7 +12,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import {useNavigate} from 'react-router-dom'
-import {getAuth} from 'firebase/auth';
+import {getAuth, signOut} from 'firebase/auth';
 const Header = ({ navToggle }) => {
   Modal.setAppElement("#root");
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -44,6 +44,13 @@ const Header = ({ navToggle }) => {
   };
   const handleChannelPage = ()=>{
     navigate('/channel');
+  }
+  const handleLogoutUser = async()=>{
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className="header">
@@ -117,7 +124,7 @@ const Header = ({ navToggle }) => {
                   <GroupOutlinedIcon className="menu-item-icon" />
                   <span className="menu-item-text">Switch Accounts</span>
                 </div>
-                <div className="avatar-menu-item">
+                <div onClick={handleLogoutUser} className="avatar-menu-item">
                   <ExitToAppOutlinedIcon className="menu-item-icon" />
                   <span className="menu-item-text">Sign Out</span>
                 </div>
