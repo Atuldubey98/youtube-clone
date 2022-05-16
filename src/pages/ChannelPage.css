@@ -1,0 +1,11 @@
+.channel-div {
+  display: flex;
+  background-color: rgb(245, 244, 244);
+  height: 100vh;
+}
+.channel-normal {
+  flex: 11.5;
+}
+.channel-withnav {
+  flex: 9;
+}

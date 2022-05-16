@@ -11,7 +11,7 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signOut, getAuth } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserLoading } from "../redux/actions/usersActions";
@@ -63,7 +63,9 @@ const Header = ({ navToggle }) => {
         <div onClick={navToggle} className="header-menu">
           <i className="header-icon fa-solid fa-bars"></i>
         </div>
-        <img className="youtube-img" src="image/you" alt="youtube-icon" />
+        <Link to="/">
+          <img className="youtube-img" src="image/you" alt="youtube-icon" />
+        </Link>
       </div>
       <div className="header-search">
         <input type="text" name="search" autoComplete="off" />
