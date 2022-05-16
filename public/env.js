@@ -25,7 +25,7 @@ window.env = {
   "npm_config_local_prefix": "/home/atul/Development/youtube-clone",
   "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
   "COLORTERM": "truecolor",
-  "GIO_LAUNCHED_DESKTOP_FILE_PID": "2049",
+  "GIO_LAUNCHED_DESKTOP_FILE_PID": "5172",
   "COLOR": "1",
   "npm_config_metrics_registry": "https://registry.npmjs.org/",
   "QT_QPA_PLATFORMTHEME": "gtk2",

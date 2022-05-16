@@ -7,19 +7,28 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ChannelPage from "./pages/ChannelPage";
 import { useDispatch } from "react-redux";
-import PrivateComponent from "./components/PrivateComponent";
+import {
+  setUser,
+  setUserError,
+  setUserLoading,
+} from "./redux/actions/usersActions";
 const auth = getAuth();
 function App() {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const navToggle = () => {
     setNav((n) => !n);
   };
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setUserLoading(true));
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (!user) {
         navigate("/login");
+        dispatch(setUser(undefined));
+        dispatch(setUserError({ message: "No user found !" }));
+      } else {
+        dispatch(setUser(user.toJSON()));
       }
     });
     return () => {
@@ -32,19 +41,11 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <PrivateComponent>
-              <HomePage nav={nav} navToggle={navToggle} />
-            </PrivateComponent>
-          }
+          element={<HomePage nav={nav} navToggle={navToggle} />}
         />
         <Route
           path="/channel"
-          element={
-            <PrivateComponent>
-              <ChannelPage nav={nav} navToggle={navToggle} />
-            </PrivateComponent>
-          }
+          element={<ChannelPage nav={nav} navToggle={navToggle} />}
         />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

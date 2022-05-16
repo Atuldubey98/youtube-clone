@@ -1,15 +1,26 @@
 import "./LoginPage.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginIcon from "@mui/icons-material/Login";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import GoogleIcon from "@mui/icons-material/Google";
 import { signInUser, signInWithGoogle } from "../firesetup/loginapi";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import LoadingPage from "./LoadingPage";
+import { setUserError, setUserLoading } from "../redux/actions/usersActions";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userReducer = useSelector((state) => state.userReducer);
+  useEffect(() => {
+    if (userReducer.user) {
+      navigate("/");
+    }
+  }, [navigate, userReducer.user]);
+
   const onEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -20,24 +31,26 @@ const LoginPage = () => {
     e.preventDefault();
     if (password !== "" && email !== "") {
       try {
-        const user = await signInUser(email, password);
-        console.log(user);
-        navigate("/", {replace : true});
+        await signInUser(email, password);
+        navigate("/", { replace: true });
       } catch (error) {
-        console.log(error);
+        dispatch(setUserError(error));
       }
     }
   };
   const onSignInWithGoogle = async (e) => {
     e.preventDefault();
     try {
+      dispatch(setUserLoading(true));
       await signInWithGoogle();
-      navigate("/", {replace : true});
+      navigate("/", { replace: true });
     } catch (error) {
-      console.log(error);
+      dispatch(setUserError(error));
     }
   };
-  return (
+  return userReducer.loading ? (
+    <LoadingPage />
+  ) : (
     <div className="login-page">
       <div className="login-form">
         <img src="image/you" alt="youtube-logo" className="youtube-logo" />
